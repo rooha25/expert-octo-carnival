@@ -121,11 +121,11 @@ function fallbackCover(){
     g.stroke(); }
   return c.toDataURL('image/jpeg',.92);
 }
-let COVER = (ALBUM_COVER_URL && ALBUM_COVER_URL !== 'https://www.melon.com/album/detail.htm?albumId=14571156') ? ALBUM_COVER_URL : fallbackCover();
+let COVER = ALBUM_COVER_URL || './cover.jpg';
 const setCover = u => { COVER=u; $('fimg').src=u; document.querySelectorAll('.img').forEach(e=>e.style.backgroundImage=`url("${u}")`); };
 const probe = new Image();
 probe.onload  = () => board.style.setProperty('--R', (probe.naturalHeight/probe.naturalWidth).toFixed(4)); // 이미지 비율에 보드를 맞춤
-probe.onerror = () => setCover(fallbackCover());
+probe.onerror = () => setCover('./cover.jpg');
 probe.src = COVER;
 $('fimg').src = COVER;
 
