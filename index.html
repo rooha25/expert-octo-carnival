@@ -85,7 +85,7 @@ const ALBUM_COVER_URL = 'https://www.melon.com/album/detail.htm?albumId=14571156
 
 // title: 곡 제목 / file: mp3 파일 경로(index.html과 같은 폴더면 파일명만) / start: 하이라이트 시작 초
 const TRACKS = [
-  { title: '다시 불행해지나 봐', file: 'track01.mp3', start: 111 },
+  { title: '다시 불행해지나 봐', file: 'track01.mp3', start: 101 },
   { title: '눈물에 녹여서', file: 'track02.mp3', start: 67 },
   { title: '조금만 더 걸어볼까', file: 'track03.mp3', start: 75 },
   { title: '우리 꼭 여름에서 죽자', file: 'track04.mp3', start: 0 },
@@ -121,7 +121,7 @@ function fallbackCover(){
     g.stroke(); }
   return c.toDataURL('image/jpeg',.92);
 }
-let COVER = (ALBUM_COVER_URL && ALBUM_COVER_URL !== '이미지URL') ? ALBUM_COVER_URL : fallbackCover();
+let COVER = (ALBUM_COVER_URL && ALBUM_COVER_URL !== 'https://www.melon.com/album/detail.htm?albumId=14571156') ? ALBUM_COVER_URL : fallbackCover();
 const setCover = u => { COVER=u; $('fimg').src=u; document.querySelectorAll('.img').forEach(e=>e.style.backgroundImage=`url("${u}")`); };
 const probe = new Image();
 probe.onload  = () => board.style.setProperty('--R', (probe.naturalHeight/probe.naturalWidth).toFixed(4)); // 이미지 비율에 보드를 맞춤
